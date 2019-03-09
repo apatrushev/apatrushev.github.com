@@ -1,5 +1,0 @@
-[project]
-name = patrushev.me
-
-[servers.production]
-target = ghpages://apatrushev/apatrushev.github.com?cname=patrushev.me
