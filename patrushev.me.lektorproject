@@ -2,4 +2,4 @@
 name = patrushev.me
 
 [servers.production]
-target = ghpages://apatrushev/apatrushev.github.com?cname=patrushev.me
+target = ghpages://apatrushev/apatrushev.github.io?cname=patrushev.me
