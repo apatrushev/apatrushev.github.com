@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<title>{% block title %}Welcome{% endblock %} — patrushev.me</title>
+<body>
+  <header>
+    <h1>Anton Patrushev</h1>
+  </header>
+  <div class="page">
+    {% block body %}{% endblock %}
+  </div>
+  <footer>
+    &copy; Copyright 2019 by <a href="mailto:apatrushev@gmail.com">apatrushev@gmail.com<a>.
+  </footer>
+</body>
