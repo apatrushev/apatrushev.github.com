@@ -1,6 +1,6 @@
 [project]
 name = patrushev.me
-url = https://patrushev.me/
+url = https://patrushev.me
 
 [servers.production]
 target = ghpages://apatrushev/apatrushev.github.io?cname=patrushev.me
