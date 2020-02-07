@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/apatrushev
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://patrushev.me
+  * I am apatrushev (https://keybase.io/apatrushev) on keybase.
+  * I have a public key ASDk0Vu7jZ9Oxm2Bs0DIUO9-Dr3iLsMSxwCSPzM02YOsSAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01202d2eb52f28ff2914ddb83e8a2ad16ef83822433ebad6cf72ece4e2b4498c22d00a",
+      "host": "keybase.io",
+      "kid": "0120e4d15bbb8d9f4ec66d81b340c850ef7e0ebde22ec312c700923f3334d983ac480a",
+      "uid": "aa38d98484ff7b9c30cb2205a4426519",
+      "username": "apatrushev"
+    },
+    "merkle_root": {
+      "ctime": 1581069529,
+      "hash": "137f44e81835170847b214026cfa27110157c20a5a5a365b8c08489a52a6a8ea079755e15c90afb16a73f92155be071ddf2f1ea5a69a47fc4e5ce320d7bd0e62",
+      "hash_meta": "e6b2c61a96d771fb2c898ac1803913684ee89db80a7dae7c94a07df5c51e54d7",
+      "seqno": 14521041
+    },
+    "service": {
+      "entropy": "l/wgua516EtCCfuhoKoGV3F9",
+      "hostname": "patrushev.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.2.0"
+  },
+  "ctime": 1581069541,
+  "expire_in": 504576000,
+  "prev": "82be93e0991f80066df10708449ef3771058cbaf02061f9ac466af66229a4ce7",
+  "seqno": 38,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg5NFbu42fTsZtgbNAyFDvfg694i7DEscAkj8zNNmDrEgKp3BheWxvYWTESpcCJsQggr6T4JkfgAZt8QcIRJ7zdxBYy68CBh+axGavZiKaTOfEINhIsXd//vyK1DeBrX4rrrR18YoZ5x08sRsiRvOPwS5oAgHCo3NpZ8RA9Q/cVtr48774uX9YPv1B2UqYoWPjpEVIftEivd/er3YwfabbJGfcFAOKfQLiwUFI2vIlcAzs/qyTl5hFic4nBqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKBaQWhpWZ8quS/RUEbt/eRBceKyUkm3AqfprafSYLCZo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/apatrushev
+
+==================================================================
