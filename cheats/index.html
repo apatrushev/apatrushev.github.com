@@ -15,8 +15,12 @@
 This method independent from host environment as much as possible and works on both Python2 and Python3.</p>
 <pre><code>curl -L bit.ly/329DB9d | python -
 </code></pre>
+<p>Yeah, it is curl python so all your base are belong to us! In fact it is shortened version of:</p>
+<pre><code>curl https://raw.githubusercontent.com/apatrushev/get-venv-builder/master/clean.py | python -
+</code></pre>
 <h2>Python getch</h2>
-<p>Minimalistic unix only version of getch for python:</p>
+<p>Pythons input/raw_input are not very suitable when you need to ask single letter question because user will have to press at least two keys.
+For that cases following snippet can be used. It is minimalistic unix only version of getch for python:</p>
 <pre><code class="lang-python">import sys
 import termios
 import tty
