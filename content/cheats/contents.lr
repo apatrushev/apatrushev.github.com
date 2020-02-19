@@ -5,8 +5,9 @@ title: Cheats
 body:
 
 ## Create venv
-Use [apatrushev/get-venv-builder](https://github.com/apatrushev/get-venv-builder) to create fresh empty virtualenv.
-This method independent from host environment as much as possible and works on both Python2 and Python3.
+Use [apatrushev/get-venv-builder](https://github.com/apatrushev/get-venv-builder) to create fresh empty
+virtualenv. This method independent from host environment as much as possible and works on both Python2
+and Python3.
 ```
 curl -L bit.ly/329DB9d | python -
 ```
@@ -16,8 +17,9 @@ curl https://raw.githubusercontent.com/apatrushev/get-venv-builder/master/clean.
 ```
 
 ## Python getch
-Pythons input/raw_input are not very suitable when you need to ask single letter question because user will have to press at least two keys.
-For that cases following snippet can be used. It is minimalistic unix only version of getch for python:
+Pythons input/raw_input are not very suitable when you need to ask single letter question because user
+will have to press at least two keys. For that cases following snippet can be used. It is minimalistic
+unix only version of getch for python:
 ```python
 import sys
 import termios
