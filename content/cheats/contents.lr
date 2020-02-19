@@ -10,9 +10,14 @@ This method independent from host environment as much as possible and works on b
 ```
 curl -L bit.ly/329DB9d | python -
 ```
+Yeah, it is curl python so all your base are belong to us! In fact it is shortened version of:
+```
+curl https://raw.githubusercontent.com/apatrushev/get-venv-builder/master/clean.py | python -
+```
 
 ## Python getch
-Minimalistic unix only version of getch for python:
+Pythons input/raw_input are not very suitable when you need to ask single letter question because user will have to press at least two keys.
+For that cases following snippet can be used. It is minimalistic unix only version of getch for python:
 ```python
 import sys
 import termios
