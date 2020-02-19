@@ -38,6 +38,25 @@ def getch():
 getch()
 ```
 
+## asyncio vs ipdb workaround
+ipdb do not work in asyncio applications ([issue details](https://github.com/gotcha/ipdb/issues/184)).
+Core problem is quite twisted and probably will not be fixed for a long time. Workaround below helps
+to use ipdb with asyncio:
+```python
+def threaded(func):
+    def wrapper(*args, **kwargs):
+        result = []
+        def target():
+            result.append(func(*args, **kwargs))
+        thread = threading.Thread(target=target)
+        thread.start()
+        thread.join()
+        return result[0]
+    return wrapper
+from IPython.terminal.debugger import TerminalPdb
+TerminalPdb.cmdloop = threaded(TerminalPdb.cmdloop)
+```
+
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
