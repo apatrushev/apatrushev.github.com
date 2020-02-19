@@ -7,6 +7,7 @@ body {
 
 a {
     color: #2a99b6;
+    text-decoration: none;
 }
 
 a:hover {
@@ -23,24 +24,8 @@ header h1 {
     margin: 0;
 }
 
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 8px 0 0;
-    padding: 0;
-}
-
 div.page {
     background: #fff;
-}
-
-h2 {
-    border-bottom: 2px solid #ccc !important;
 }
 
 header a:nth-child(3) {
@@ -49,10 +34,6 @@ header a:nth-child(3) {
 
 footer > div {
     float: right;
-}
-
-a {
-    text-decoration: none;
 }
 
 @media (max-width: 980px) {

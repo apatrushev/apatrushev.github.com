@@ -15,6 +15,27 @@
 This method independent from host environment as much as possible and works on both Python2 and Python3.</p>
 <pre><code>curl -L bit.ly/329DB9d | python -
 </code></pre>
+<h2>Python getch</h2>
+<p>Minimalistic unix only version of getch for python:</p>
+<pre><code class="lang-python">import sys
+import termios
+import tty
+
+def getch():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+getch()
+</code></pre>
+<p><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css"></p>
+<p><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script></p>
+<p><script>hljs.initHighlightingOnLoad();</script></p>
 <p><script>
 Array.from(document.getElementsByTagName('pre')).map(element => {
     element.addEventListener('click', event => {
@@ -27,7 +48,13 @@ pre {
     cursor: pointer;
     border: 1px solid black;
     padding: 20px;
-};
+}
+code {
+    background: white !important;
+}
+h2 {
+    border-bottom: 2px solid #ccc !important;
+}
 </style>
 
   </div>
