@@ -10,6 +10,10 @@ This method independent from host environment as much as possible and works on b
 ```
 curl -L bit.ly/329DB9d | python -
 ```
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <script>
 Array.from(document.getElementsByTagName('pre')).map(element => {
     element.addEventListener('click', event => {
@@ -22,6 +26,9 @@ pre {
     cursor: pointer;
     border: 1px solid black;
     padding: 20px;
+}
+code {
+    background: white !important;
 }
 h2 {
     border-bottom: 2px solid #ccc !important;
