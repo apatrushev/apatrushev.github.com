@@ -39,6 +39,22 @@ div.page {
     background: #fff;
 }
 
+h2 {
+    border-bottom: 2px solid #ccc !important;
+}
+
+header a:nth-child(3) {
+    color: black;
+}
+
+footer > div {
+    float: right;
+}
+
+a {
+    text-decoration: none;
+}
+
 @media (max-width: 980px) {
     html {
         font-size: 2.5em;
