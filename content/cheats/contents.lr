@@ -5,6 +5,8 @@ title: Cheats
 body:
 
 ## Create venv
+Use [apatrushev/get-venv-builder](https://github.com/apatrushev/get-venv-builder) to create fresh empty virtualenv.
+This method independent from host environment as much as possible and works on both Python2 and Python3.
 ```
 curl -L bit.ly/329DB9d | python -
 ```
