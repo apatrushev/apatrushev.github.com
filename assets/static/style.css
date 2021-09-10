@@ -36,6 +36,19 @@ footer > div {
     float: right;
 }
 
+header .github-corner {
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+}
+
+header .github-corner object {
+    pointer-events: none;
+    width: 80;
+    height: 80;
+}
+
 @media (max-width: 980px) {
     html {
         font-size: 2.5em;
