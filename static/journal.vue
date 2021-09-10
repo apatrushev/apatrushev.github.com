@@ -26,6 +26,9 @@
         >
             <div>
                 <div>{{ date.toDateString() }}</div>
+                <div v-if="day === (new Date()).getDay() && notes">
+                    {{ notes }}
+                </div>
                 <template v-if="data[day]">
                     <b-table :items="data[day]['10d']"></b-table>
                 </template>
@@ -53,7 +56,7 @@ module.exports = {
     },
     computed: {
         ready() {
-            return !!this.journal_days && !!this.data;
+            return !!this.journal_days && !!this.data && !!this.notes;
         },
         days() {
             let today = new Date(), start = (today.getDay() + 7 - 2),
@@ -97,6 +100,13 @@ module.exports = {
                 .value()
             );
         },
+        async notes() {
+            return (
+                fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://lycutils.ipq.co/tmtbl/')}`)
+                .then(response => response.json())
+                .then(response => response.contents)
+            );
+        },
     },
 }
 </script>
@@ -136,8 +146,8 @@ thead {
     }
 }
 @media (min-width: 981px) {
-    table {
-        min-width: 25em;
+    .day > div {
+        width: 25em;
     }
 }
 </style>
