@@ -60,8 +60,9 @@ module.exports = {
                 _(await Promise.all(
                     _.range(1, 7)
                     .map(d => (
-                        fetch(`https://lycutils.ipq.co/tmtbl/tmtbl${d}.js`)
-                        .then(response => response.text())
+                        fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://lycutils.ipq.co/tmtbl/tmtbl${d}.js`)}`)
+                        .then(response => response.json())
+                        .then(response => response.contents)
                         .then(data => data.slice(10))
                         .then(JSON.parse)
                         .then(x => ([d, x]))
