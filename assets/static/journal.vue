@@ -10,14 +10,25 @@
             </div>
             <b-button @click="agree">Я понял и согласен</b-button>
         </div>
+        <div>
+            Показывать дней:
+            <b-form-select
+                v-model="journal_days"
+                :options="journal_options"
+                @change="journal_days_update"
+            ></b-form-select>
+        </div>
         <div
             class="day"
-            :class="{sunday: day === 0, today: idx === 2}"
+            :class="{sunday: day === 0, today: day === (new Date()).getDay()}"
             v-for="([day, date], idx) in days"
             :key="idx"
         >
             <div>
                 <div>{{ date.toDateString() }}</div>
+                <div v-if="day === (new Date()).getDay() && notes">
+                    {{ notes }}
+                </div>
                 <template v-if="data[day]">
                     <b-table :items="data[day]['10d']"></b-table>
                 </template>
@@ -29,32 +40,49 @@
 <script>
 module.exports = {
     name: 'journal',
+    data() {
+        return {
+            journal_options: [1, 2, 3 ,7],
+        };
+    },
     methods: {
         agree() {
             localStorage.setItem('lyceum-disclaimer', true);
             this.$asyncComputed.disclaimer.update();
         },
+        journal_days_update(value) {
+            localStorage.setItem('lyceum-journal-days', value);
+        },
     },
     computed: {
         ready() {
-            return !!this.data;
+            return !!this.journal_days && !!this.data && !!this.notes;
         },
         days() {
-            let today = new Date(), start = (today.getDay() + 7 - 2);
-            return (
-                _.range(start, start + 7)
-                .map(x => x % 7)
-                .map(x => {
-                    let date = new Date();
-                    date.setDate(date.getDate() + (x - date.getDay()));
-                    if (x < start % 7) date.setDate(date.getDate() + 7);
-                    return ([x, date]);
-                })
-            );
+            let today = new Date(), start = (today.getDay() + 7 - 2),
+                result = (
+                    _.range(start, start + 7)
+                    .map(x => x % 7)
+                    .map(x => {
+                        let date = new Date();
+                        date.setDate(date.getDate() + (x - date.getDay()));
+                        if (x < start % 7) date.setDate(date.getDate() + 7);
+                        return ([x, date]);
+                    })
+                );
+            if (!this.journal_days || this.journal_days === 7) {
+                return result;
+            } else if (this.journal_days === 2) {
+                return _.slice(result, 2, 4 + !parseInt(result[3][0]));
+            } else if (this.journal_days === 3) {
+                return _.slice(result, 1, 4 + !parseInt(result[3][0]));
+            };
+            return _.slice(result, 2, 3);
         },
     },
     asyncComputed: {
         disclaimer: () => localStorage.getItem('lyceum-disclaimer'),
+        journal_days: () => parseInt(localStorage.getItem('lyceum-journal-days') || 7),
         async data() {
             return (
                 _(await Promise.all(
@@ -72,6 +100,13 @@ module.exports = {
                 .value()
             );
         },
+        async notes() {
+            return (
+                fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://lycutils.ipq.co/tmtbl/')}`)
+                .then(response => response.json())
+                .then(response => response.contents)
+            );
+        },
     },
 }
 </script>
@@ -86,12 +121,6 @@ td {
 }
 thead {
     display: none;
-}
-table [aria-colindex="1"] {
-    min-width: 140px;
-}
-table [aria-colindex="3"] {
-    min-width: 170px;
 }
 .sunday {
     background-color: rgb(255, 155, 155);
@@ -110,5 +139,15 @@ table [aria-colindex="3"] {
 }
 .disclaimer > div {
     padding-bottom: 10px;
+}
+@media (max-width: 980px) {
+    .day > div {
+        width: 100%;
+    }
+}
+@media (min-width: 981px) {
+    .day > div {
+        width: 25em;
+    }
 }
 </style>

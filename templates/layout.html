@@ -1,29 +1,41 @@
 <!doctype html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css' | url }}">
-<title>{% block title %}Welcome{% endblock %} — patrushev.me</title>
-<script src="{{ '/static/clipboard.js'|url }}"></script>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ '/static/style.css' | url }}">
+        <title>{% block title %}Welcome{% endblock %} — patrushev.me</title>
+        <script src="{{ '/static/clipboard.js'|url }}"></script>
 
-<body>
-    <header style="position: relative;">
-        <a
-        href="https://github.com/apatrushev/apatrushev.github.io"
-        class="github-corner"
-        >
-            <object
-                    type="image/svg+xml"
-                    data="/static/octocat.svg"
-            ></object>
-        </a>
-        <a href="/">
-            <h1>Anton Patrushev</h1>
-        </a>
-    </header>
-    <div class="page">
-        {% block body %}{% endblock %}
-    </div>
-    <footer>
-        &copy; Copyright 2019-2021 by <a href="mailto:apatrushev@gmail.com">apatrushev@gmail.com</a>.
-        <div><a href="/cheats">Cheats</a></div>
-    </footer>
-</body>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHZYMBBYB4"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BHZYMBBYB4');
+        </script>
+    </head>
+    <body>
+        <header style="position: relative;">
+            <a
+            href="https://github.com/apatrushev/apatrushev.github.io"
+            class="github-corner"
+            >
+                <object
+                        type="image/svg+xml"
+                        data="/static/octocat.svg"
+                ></object>
+            </a>
+            <a href="/">
+                <h1>Anton Patrushev</h1>
+            </a>
+        </header>
+        <div class="page">
+            {% block body %}{% endblock %}
+        </div>
+        <footer>
+            &copy; Copyright 2019-2021 by <a href="mailto:apatrushev@gmail.com">apatrushev@gmail.com</a>.
+            <div><a href="/cheats">Cheats</a></div>
+        </footer>
+    </body>
+</html>
